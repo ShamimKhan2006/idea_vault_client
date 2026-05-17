@@ -1,66 +1,113 @@
 "use client";
 
-import React from 'react';
+import React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@heroui/react";
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 
 const Navber = () => {
+  const pathname = usePathname();
 
-   const pathname = usePathname();
-
-   const links = [
+  const links = [
     { name: "Home", path: "/" },
     { name: "Ideas", path: "/ideas" },
     { name: "Add Idea", path: "/add-idea" },
     { name: "My Ideas", path: "/my-idea" },
     { name: "My Interactions", path: "/my-interections" },
-   ]
+  ];
 
   return (
-    <div className="navbar bg-[#04011c] shadow-sm text-white mb-20">
+    <div className="navbar bg-[#04011c] text-white px-4 md:px-10 shadow-lg">
 
       <div className="navbar-start">
-        <a className="btn btn-ghost text-2xl">
-          Idea Vault
-        </a>
-      </div>
+   
+        <div className="dropdown">
+          <div
+            tabIndex="-1"
+            role="button"
+            className="btn btn-ghost lg:hidden text-white"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16m-16 6h16"
+              />
+            </svg>
+          </div>
 
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-3">
 
-          {
-            links.map(link => (
+          <ul
+            tabIndex="-1"
+            className="menu menu-sm dropdown-content bg-[#0b062d] rounded-box z-[100] mt-3 w-60 p-3 shadow-lg gap-2 lg:hidden"
+          >
+            {links.map((link) => (
               <li key={link.path}>
                 <Link
                   href={link.path}
-                  className={`px-4 py-2 rounded-none transition-all duration-300
-                    ${
-                      pathname === link.path
-                        ? "bg-[#16112b] text-white"
-                        : "hover:bg-gray-900"
-                    }
-                  `}
+                  className={`rounded-lg px-3 py-2 transition-all duration-300 ${
+                    pathname === link.path
+                      ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
+                      : "hover:bg-gray-800"
+                  }`}
                 >
                   {link.name}
                 </Link>
               </li>
-            ))
-          }
+            ))}
+          </ul>
+        </div>
 
+        {/* LOGO */}
+        <Link
+          href="/"
+          className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
+        >
+          Idea Vault
+        </Link>
+      </div>
+
+
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal gap-3">
+          {links.map((link) => (
+            <li key={link.path}>
+              <Link
+                href={link.path}
+                className={`px-4 py-2 rounded-xl transition-all duration-300 ${
+                  pathname === link.path
+                    ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
+                    : "hover:bg-gray-800"
+                }`}
+              >
+                {link.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <div className="navbar-end flex gap-4">
-        <Button className="rounded-none text-white">
-          Login
-        </Button>
+      <div className="navbar-end gap-2 md:gap-4">
+        <Link href={"/login"}>
+          <Button className="border border-pink-500 bg-transparent text-white rounded-xl hover:bg-pink-500 transition-all duration-300">
+            Login
+          </Button>
+        </Link>
 
-        <Button className="rounded-none text-white">
-          Register
-        </Button>
+        <Link href={"/register"}>
+          {" "}
+          <Button className="bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl hover:scale-105 transition-all duration-300">
+            Register
+          </Button>
+        </Link>
       </div>
-
     </div>
   );
 };
