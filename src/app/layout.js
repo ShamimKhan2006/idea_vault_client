@@ -1,5 +1,7 @@
 import { Geist, Figtree } from "next/font/google";
 import "./globals.css";
+import Navber from "@/components/Navber";
+import Footer from "@/components/Footer";
 
 const figtree = Figtree({
 
@@ -19,11 +21,12 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${figtree.className}} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#16112b] ">
+        <Navber></Navber>
         <main>
           {children}
         </main>
-        
+        <Footer/>
         </body>
     </html>
   );
