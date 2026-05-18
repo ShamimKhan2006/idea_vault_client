@@ -1,19 +1,42 @@
 "use client"
 
+import { authClient } from "@/lib/auth-client";
 import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
+import toast from "react-hot-toast";
 const LoginPage = () => {
- const handleLogin=(e) =>{
+ const handleLogin=async(e) =>{
     e.preventDefault()
 
     const formData=new FormData(e.currentTarget)
     const newData=Object.fromEntries(formData.entries())
-    
-    
- }
+    console.log(newData)
+      
 
+
+     
+
+    const { data, error } = await authClient.signIn.email({
+    ...newData,
+    rememberMe: true,
+    callbackURL:"/"
+   
+});
+     
+console.log("DATA:", data);
+console.log("ERROR:", error);
+
+if (error) {
+  toast.error(error.message || "Login Failed!");
+  return;
+}
+
+if (data) {
+  toast.success("Login Successfully");
+ }
+ }
     return (
         <div className="w-6/12 mx-auto items-center">
-          <Form className="flex flex-col gap-4 max-w-96 border text-white  mt-20 ml-65 p-6  rounded-2xl ">
+          <Form className="flex flex-col gap-4 max-w-96 border text-white  mt-20 ml-65 p-6  rounded-2xl "  onSubmit={handleLogin}>
             <h1 className="my-5 shadow-sm text-center text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Login Form</h1>
       <TextField
         isRequired
@@ -54,7 +77,7 @@ const LoginPage = () => {
         <FieldError />
       </TextField>
      
-      <Button  className=" my-5 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl hover:scale-105 transition-all duration-300" onSubmit={handleLogin}>
+      <Button type="submit" className=" my-5 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl hover:scale-105 transition-all duration-300" >
                    Login
                  </Button>
      

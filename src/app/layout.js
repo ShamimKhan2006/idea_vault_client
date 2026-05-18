@@ -2,6 +2,7 @@ import { Geist, Figtree } from "next/font/google";
 import "./globals.css";
 import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const figtree = Figtree({
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
       className={`${figtree.className}} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#16112b] ">
+        <Toaster></Toaster>
         <Navber></Navber>
         <main>
           {children}
