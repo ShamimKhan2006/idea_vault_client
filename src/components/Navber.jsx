@@ -3,11 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "@heroui/react";
+import { Button, ToggleButton } from "@heroui/react";
+import ThemeButton from "./ThemeButton";
+import { authClient } from "@/lib/auth-client";
 
 const Navber = () => {
   const pathname = usePathname();
-
+       
   const links = [
     { name: "Home", path: "/" },
     { name: "Ideas", path: "/ideas" },
@@ -15,10 +17,15 @@ const Navber = () => {
     { name: "My Ideas", path: "/my-idea" },
     { name: "My Interactions", path: "/my-interections" },
   ];
+ 
+
+
+const { data: session } = authClient.useSession()
+console.log(session, "session")
 
   return (
     <div className="navbar bg-[#04011c] text-white px-4 md:px-10 shadow-lg">
-
+{/*  */}
       <div className="navbar-start">
    
         <div className="dropdown">
@@ -46,8 +53,9 @@ const Navber = () => {
 
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-[#0b062d] rounded-box z-[100] mt-3 w-60 p-3 shadow-lg gap-2 lg:hidden"
+            className="menu menu-sm dropdown-content rounded-box z-[100] mt-3 w-60 p-3 shadow-lg gap-2 lg:hidden"
           >
+             {/* bg-[#0b062d] */}
             {links.map((link) => (
               <li key={link.path}>
                 <Link
@@ -95,6 +103,7 @@ const Navber = () => {
       </div>
 
       <div className="navbar-end gap-2 md:gap-4">
+           <ThemeButton></ThemeButton>
         <Link href={"/login"}>
           <Button className="border border-pink-500 bg-transparent text-white rounded-xl hover:bg-pink-500 transition-all duration-300">
             Login

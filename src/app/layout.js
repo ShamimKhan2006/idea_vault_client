@@ -3,6 +3,7 @@ import "./globals.css";
 import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
+import Providers from "./providers";
 
 const figtree = Figtree({
 
@@ -19,16 +20,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en"
+      lang="en" data-theme="light" 
       className={`${figtree.className}} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-[#16112b] ">
-        <Toaster></Toaster>
+   suppressHydrationWarning >
+      <body className="min-h-full flex flex-col bg-background text-foreground">   
+        {/* bg-[#16112b] */}
+      <Providers>
+      <Toaster></Toaster>
         <Navber></Navber>
         <main>
+           
           {children}
+      
+         
         </main>
         <Footer/>
+          </Providers>
         </body>
     </html>
   );

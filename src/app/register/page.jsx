@@ -1,9 +1,10 @@
  "use client"
 import { authClient } from "@/lib/auth-client";
-import {Button, Description, FieldError, Form, Input, Label, TextField} from "@heroui/react";
+import {Button, Description, FieldError, Form, Input, Label, Separator, TextField} from "@heroui/react";
 import { redirect } from "next/navigation";
 
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 
 const RegisterPage = () => {
 
@@ -43,13 +44,19 @@ const handleRegister= async(e) =>{
 
  }
 
+   const handleGoogle = async () => {
+  const data = await authClient.signIn.social({
+    provider: "google",
+  });
+};
+
   
 
 
     return (
           <div className="w-6/12 mx-auto items-center">
-                  <Form className="flex flex-col gap-4 max-w-96 border text-white  mt-20 ml-65 p-6  rounded-2xl " onSubmit={handleRegister}>
-                    <h1 className="my-5 shadow-sm text-center text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Register Form</h1>
+                  <Form className="flex flex-col gap-4 max-w-96 border text-white  mt-20 ml-65 p-6  rounded-2xl bg-gray-400" onSubmit={handleRegister}>
+                    <h1 className="my-5  text-center text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">Register Form</h1>
               <TextField
                 isRequired
                 name="name"
@@ -111,7 +118,16 @@ const handleRegister= async(e) =>{
               <Button   type="submit" className=" my-5 w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl hover:scale-105 transition-all duration-300">
                            Register
                          </Button>
-             
+              <div className='flex justify-center items-center gap-3'>
+                                   <Separator className="w-30"></Separator>
+                               <p className='whitespace-nowrap text-center'>
+                                 Or with register
+                               </p>
+                                  <Separator className="w-30"></Separator>
+                              
+                                  </div>
+                    <Button variant="outline" className="w-full text-white mb-4" onClick={handleGoogle}><FcGoogle /> Sign Up with Google</Button> 
+              
             </Form> 
                 </div>)
 };
