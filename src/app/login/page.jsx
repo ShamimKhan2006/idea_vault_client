@@ -20,7 +20,7 @@ const LoginPage = () => {
     const { data, error } = await authClient.signIn.email({
     ...newData,
     rememberMe: true,
-    callbackURL:"/"
+    callbackURL:"/ideas"
    
 });
      

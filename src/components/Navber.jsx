@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button, ToggleButton } from "@heroui/react";
+import { Button} from "@heroui/react";
 import ThemeButton from "./ThemeButton";
 import { authClient } from "@/lib/auth-client";
 

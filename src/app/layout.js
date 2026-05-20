@@ -1,11 +1,11 @@
-import { Geist, Figtree } from "next/font/google";
+import { Geist, Rubik } from "next/font/google";
 import "./globals.css";
 import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import Providers from "./providers";
 
-const figtree = Figtree({
+const f = Rubik({
 
   subsets: ["latin"],
 });
@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en" data-theme="light" 
-      className={`${figtree.className}} h-full antialiased`}
+      className={`${f.className}} h-full antialiased`}
    suppressHydrationWarning >
       <body className="min-h-full flex flex-col bg-background text-foreground">   
         {/* bg-[#16112b] */}

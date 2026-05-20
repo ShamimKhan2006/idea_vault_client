@@ -2,10 +2,10 @@ import React from 'react';
 
 const Footer = () => {
     return (
-       <div>
-        {/* bg-[#04011c] */}
+       <div className='w-full bg-[#04011c]'>
+        {/*  */}
              <footer className=" text-gray-400 px-6 md:px-16 py-16 mt-20">
-      <div className="max-w-7xl mx-auto">
+      <div>
         <div className="mb-12">
           <h1 className="text-6xl md:text-7xl font-bold text-white">
              Idea Vault
