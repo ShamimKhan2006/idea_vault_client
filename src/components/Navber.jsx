@@ -24,7 +24,7 @@ const { data: session } = authClient.useSession()
 console.log(session, "session")
 
   return (
-    <div className="navbar bg-[#04011c] text-white px-4 md:px-10 shadow-lg">
+    <div className="navbar   text-black px-4 md:px-10 shadow-lg">
 {/*  */}
       <div className="navbar-start">
    

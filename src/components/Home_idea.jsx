@@ -21,7 +21,7 @@ const Home_idea = async() => {
                <div className='grid grid-cols-1  md:grid-cols-3  lg:grid-cols-4 gap-3'>
                   {
                    homeIdea.map(item => <div key={item._id}>
-                       <div className=" w-96 border-gray-700 shadow-sm">
+                       <div className=" w-96  bg-[#E2E8F0] shadow-sm">
          <figure>
            <Image
              src={item.imageURL}

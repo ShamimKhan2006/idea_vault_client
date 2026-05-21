@@ -4,6 +4,7 @@ import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import Providers from "./providers";
+import Marquee from "react-fast-marquee";
 
 const f = Rubik({
 
@@ -20,11 +21,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html
-      lang="en" data-theme="light" 
+      lang="en" 
       className={`${f.className}} h-full antialiased`}
    suppressHydrationWarning >
-      <body className="min-h-full flex flex-col bg-background text-foreground">   
+      <body className="min-h-full flex flex-col bg-background text-foreground ">   
         {/* bg-[#16112b] */}
+
       <Providers>
       <Toaster></Toaster>
         <Navber></Navber>
@@ -36,6 +38,7 @@ export default function RootLayout({ children }) {
         </main>
         <Footer/>
           </Providers>
+    
         </body>
     </html>
   );

@@ -13,7 +13,7 @@ const ChoiseIdeaVault = () => {
                 <h1 className='font-bold text-3xl mb-2'>Why Chose idea Vault</h1>
                  <p> platform built for innovators, dreamers, and future founders.</p>
             </div>
-           <div className='grid grid-cols-4 gap-4 mt-10'>
+           <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10'>
               <div className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4 ' >
                <div className='rounded-full border-purple-500 p-4 bg-purple-500'>
                  <FaRegLightbulb className='w-15 h-15'/>
