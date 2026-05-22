@@ -18,27 +18,25 @@ const Navber = () => {
     { name: "My Ideas", path: "/my-idea" },
     { name: "My Interactions", path: "/my-interections" },
   ];
-     
-  const handleLogout=async()=>{
-     await authClient.signOut();
-     redirect("/")
-  }
-   
-   
+
+  const handleLogout = async () => {
+    await authClient.signOut();
+    redirect("/");
+  };
 
   const { data: session } = authClient.useSession();
   console.log(session, "session");
-   const user=session?.user
-        console.log("user",user)
+  const user = session?.user;
+  console.log("user", user);
+
   return (
-    <div className="navbar   text-black px-4 md:px-10 shadow-lg  bg-base-00">
-      {/*  */}
+    <div className="navbar text-foreground bg-background px-4  md:px-10 shadow-lg">
       <div className="navbar-start">
         <div className="dropdown">
           <div
             tabIndex="-1"
             role="button"
-            className="btn btn-ghost lg:hidden text-white"
+            className="btn btn-ghost lg:hidden text-foreground"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,15 +56,14 @@ const Navber = () => {
 
           <ul
             tabIndex={-1}
-            className="menu menu-sm dropdown-content rounded-box z-[100] mt-3 w-60 p-3 shadow-lg gap-2 lg:hidden  "
+            className="menu menu-sm dropdown-content rounded-box z-[100] mt-3 w-60 p-3 shadow-lg gap-2 lg:hidden bg-content1 text-foreground"
           >
-            {/**/}
             {links.map((link) => (
               <li key={link.path}>
                 <Link
                   href={link.path}
-                  className={`rounded-lg px-3 py-2 ${
-                    pathname === link.path ? " border border-green-500" : ""
+                  className={`rounded-lg px-3 py-2 text-default-600 ${
+                    pathname === link.path ? "border " : ""
                   }`}
                 >
                   {link.name}
@@ -78,7 +75,7 @@ const Navber = () => {
 
         <Link
           href="/"
-          className="text-2xl md:text-3xl font-bold text-black "
+          className="text-[15px] md:text-2xl font-bold text-foreground pr-2"
         >
           Idea <span className="text-green-500">Vault</span>
         </Link>
@@ -90,7 +87,7 @@ const Navber = () => {
             <li key={link.path}>
               <Link
                 href={link.path}
-                className={`px-4 py-2 rounded-xl  ${
+                className={`px-4 py-2 rounded-xl text-foreground ${
                   pathname === link.path ? "border-b-2 border-green-500" : ""
                 }`}
               >
@@ -101,54 +98,54 @@ const Navber = () => {
         </ul>
       </div>
 
- 
-     <div className="navbar-end gap-2 md:gap-4">
-  <ThemeButton className="border-gray-400" />
+      <div className="navbar-end gap-2 md:gap-4">
+        <ThemeButton className="border-default-400" />
 
-  {!user ? (
-    <>
-      <Link href={"/login"}>
-        <Button
-          variant="outline"
-          className="border-gray-500 text-black transition-all duration-300"
-        >
-          Login
-        </Button>
-      </Link>
+        {!user ? (
+          <>
+            <Link href={"/login"}>
+              <Button
+                variant="outline"
+                className="border-default-500 text-foreground transition-all duration-300"
+              >
+                Login
+              </Button>
+            </Link>
 
-      <Link href={"/register"}>
-        <Button className="bg-green-500 text-white rounded-xl transition-all duration-300">
-          Register
-        </Button>
-      </Link>
-    </>
-  ) : (
-    <details className="dropdown dropdown-end">
-      <summary className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full overflow-hidden">
-          <Image
-            src={user?.image}
-            alt="user"
-            width={40}
-            height={40}
-          />
-        </div>
-      </summary>
+            <Link href={"/register"}>
+              <Button className="bg-green-500 text-white rounded-xl transition-all duration-300">
+                Register
+              </Button>
+            </Link>
+          </>
+        ) : (
+          <details className="dropdown dropdown-end">
+            <summary className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full overflow-hidden">
+                <Image
+                  src={user?.image}
+                  alt="user"
+                  width={40}
+                  height={40}
+                />
+              </div>
+            </summary>
 
-      <ul className="menu dropdown-content bg-white text-black rounded-box z-[100] mt-3 w-52 p-2 shadow">
-        <li>
-          <Link href={"/profile"}>Profile</Link>
-        </li>
+            <ul className="menu dropdown-content bg-content1 text-foreground rounded-box z-[100] mt-3 w-52 p-2 shadow">
+              <li>
+                <Link href={"/profile"}>Profile</Link>
+              </li>
 
-        <li>
-          <Button onClick={handleLogout}>Logout</Button>
-        </li>
-      </ul>
-    </details>
-  )}
-</div>
-      </div> 
-
+              <li>
+                <Button onClick={handleLogout} className="bg-transparent text-foreground justify-start px-3 shadow-none hover:bg-default-100">
+                  Logout
+                </Button>
+              </li>
+            </ul>
+          </details>
+        )}
+      </div>
+    </div>
   );
 };
 

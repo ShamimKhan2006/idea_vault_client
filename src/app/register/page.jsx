@@ -54,16 +54,16 @@ const handleRegister= async(e) =>{
 
 
     return (
-          <div className="w-6/12 mx-auto items-center">
-                  <Form className="flex flex-col gap-4 max-w-96  text-black  mt-20 ml-65 p-6  rounded-2xl shadow-md" onSubmit={handleRegister}>
-                    <h1 className="my-5  text-center text-2xl md:text-3xl font-bold ">Register <span className="bg-green-500"></span>Form</h1>
+          <div className="w-full max-w-md px-4 mx-auto items-center">
+                  <Form className="flex flex-col gap-4   text-forground  mt-20  p-6  rounded-2xl shadow-md" onSubmit={handleRegister}>
+                    <h1 className="my-5  text-center text-2xl md:text-3xl font-bold ">Register <span className="text-green-500">Form</span></h1>
               <TextField
                 isRequired
                 name="name"
                 type="text"
                 
               >
-                <Label className="text-black">Name</Label>
+                <Label className="text-forground">Name</Label>
                 <Input placeholder="Enter your name" />
                 <FieldError />
               </TextField>
@@ -74,7 +74,7 @@ const handleRegister= async(e) =>{
                 type="email"
                 
               >
-                <Label className="text-black">Email</Label>
+                <Label className="text-forground">Email</Label>
                 <Input placeholder="Enter your email" />
                 
                 <FieldError />
@@ -86,7 +86,7 @@ const handleRegister= async(e) =>{
                 type="text"
                
               >
-                <Label className="text-black">Image Url</Label>
+                <Label className="text-forground">Image Url</Label>
                 <Input placeholder="Enter your image url" />
               
               
@@ -109,8 +109,9 @@ const handleRegister= async(e) =>{
                   return null;
                 }}
               >
-                <Label className="text-black">Password</Label>
+                <Label className="text-forground">Password</Label>
                 <Input placeholder="Enter your password" />
+                <span className="text-right text-sm  m-2 font-semibold">Forgot password</span>
                 <Description className="text-gray-600">Must be at least 8 characters with 1 uppercase and 1 number</Description>
                 <FieldError />
               </TextField>
@@ -119,14 +120,14 @@ const handleRegister= async(e) =>{
                            Register
                          </Button>
               <div className='flex justify-center items-center gap-3'>
-                                   <Separator className="w-30 text-black"></Separator>
+                                   <Separator className="w-30 text-forground"></Separator>
                                <p className='whitespace-nowrap text-center'>
                                  Or with register
                                </p>
-                                  <Separator className="w-30 text-black"></Separator>
+                                  <Separator className="w-30 text-forground"></Separator>
                               
                                   </div>
-                    <Button variant="outline" className="w-full  mb-4 text-black" onClick={handleGoogle}><FcGoogle /> Sign Up with Google</Button> 
+                    <Button variant="outline" className="w-full  mb-4 text-forground" onClick={handleGoogle}><FcGoogle /> Sign Up with Google</Button> 
               
             </Form> 
                 </div>)

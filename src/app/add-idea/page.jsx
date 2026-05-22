@@ -45,9 +45,9 @@ const AddIdeaPages = () => {
         "Other"
     ];
     return (
-         <div className="min-h-screen text-white py-10 px-4">
-      <div className="max-w-3xl mx-auto bg-zinc-900 p-8 rounded-2xl border border-zinc-800">
-        <h1 className="text-3xl font-bold mb-2">Submit Startup Idea</h1>
+         <div className="py-10 px-4">
+      <div className=" w-full max-w-md mx-auto  p-8 rounded-2xl  shadow-xl text-foreground">
+        <h1 className="text-3xl font-bold mb-2">Submit <span className='text-green-500'>Startup Idea</span></h1>
         <p className="text-zinc-400 mb-8">
           Share your innovative startup idea with the world 🚀
         </p>
@@ -55,7 +55,7 @@ const AddIdeaPages = () => {
          <form onSubmit={handleSubmit} className="space-y-6">
           {/* Idea Title */}
           <div>
-            <label className="block mb-2 font-medium">
+            <label className="block mb-2 font-medium   text-forground">
               Idea Title
             </label>
 
@@ -63,14 +63,14 @@ const AddIdeaPages = () => {
               type="text"
               name="ideaTitle"
               placeholder="Enter startup idea title"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full   shadow-md  rounded-xl px-4 py-3 outline-none focus:border-pink-500"
               required
             />
           </div>
 
           {/* Short Description */}
           <div>
-            <label className="block mb-2 font-medium">
+            <label className="block mb-2 font-medium  text-forground">
               Short Description
             </label>
 
@@ -78,14 +78,14 @@ const AddIdeaPages = () => {
               type="text"
               name="shortDescription"
               placeholder="Short summary about your idea"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full   shadow-md rounded-xl px-4 py-3 outline-none focus:border-pink-500"
               required
             />
           </div>
 
           {/* Detailed Description */}
           <div>
-            <label className="block mb-2 font-medium">
+            <label className="block mb-2 font-medium text-forground">
               Detailed Description
             </label>
 
@@ -93,26 +93,26 @@ const AddIdeaPages = () => {
               name="detailedDescription"
               rows="5"
               placeholder="Describe your startup idea in detail"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full   shadow-md rounded-xl px-4 py-3 outline-none focus:border-pink-500"
               required
             ></textarea>
           </div>
 
           {/* Category */}
           <div>
-            <label className="block mb-2 font-medium">
+            <label className="block mb-2 font-medium  text-forground">
               Category
             </label>
 
             <select
               name="category"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full shadow-md rounded-xl px-4 py-3 outline-none text-foreground focus:border-pink-500"
               required
             >
               <option value="">Select Category</option>
 
               {categories.map((category) => (
-                <option key={category} value={category}>
+                <option  key={category} value={category}>
                   {category}
                 </option>
               ))}
@@ -129,13 +129,13 @@ const AddIdeaPages = () => {
               type="text"
               name="tags"
               placeholder="AI, Startup, Education"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full    shadow-md rounded-xl px-4 py-3 outline-none focus:border-pink-500"
             />
           </div>
 
           {/* Image URL */}
           <div>
-            <label className="block mb-2 font-medium">
+            <label className="block mb-2 font-medium  text-forground">
               Image URL
             </label>
 
@@ -143,14 +143,14 @@ const AddIdeaPages = () => {
               type="url"
               name="imageURL"
               placeholder="Paste image URL"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full    shadow-md  rounded-xl px-4 py-3 outline-none focus:border-pink-500"
               required
             />
           </div>
 
           {/* Estimated Budget */}
           <div>
-            <label className="block mb-2 font-medium">
+            <label className="block mb-2 font-medium text-forground">
               Estimated Budget
             </label>
 
@@ -158,13 +158,13 @@ const AddIdeaPages = () => {
               type="text"
               name="estimatedBudget"
               placeholder="$5000"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full    shadow-md rounded-xl px-4 py-3 outline-none focus:border-pink-500"
             />
           </div>
 
           {/* Target Audience */}
           <div>
-            <label className="block mb-2 font-medium">
+            <label className="block mb-2 font-medium  text-forground">
               Target Audience
             </label>
 
@@ -172,14 +172,14 @@ const AddIdeaPages = () => {
               type="text"
               name="targetAudience"
               placeholder="Who will use this product?"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full    shadow-md  rounded-xl px-4 py-3 outline-none focus:border-pink-500"
               required
             />
           </div>
 
           {/* Problem Statement */}
           <div>
-            <label className="block mb-2 font-medium">
+            <label className="block mb-2 font-medium  text-forground">
               Problem Statement
             </label>
 
@@ -187,7 +187,7 @@ const AddIdeaPages = () => {
               name="problemStatement"
               rows="4"
               placeholder="What problem does this solve?"
-              className="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3 outline-none focus:border-pink-500"
+              className="w-full   shadow-md rounded-xl px-4 py-3 outline-none focus:border-pink-500"
               required
             ></textarea>
           </div>
@@ -195,9 +195,9 @@ const AddIdeaPages = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 hover:scale-[1.02] transition-all duration-300 font-semibold"
+            className="w-full py-3 rounded-xl bg-green-500 hover:scale-[1.02] transition-all duration-300 font-semibold"
           >
-            Submit Idea 🚀
+            Add Idea 🚀
           </button>
         </form>
       </div>

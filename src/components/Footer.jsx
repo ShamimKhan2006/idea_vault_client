@@ -4,10 +4,10 @@ const Footer = () => {
     return (
        <div className='w-full '>
         {/*  */}
-             <footer className=" text-gray-400 px-6 md:px-16 py-16 mt-20">
+             <footer className="  px-6 md:px-16 py-16 mt-20">
       <div>
         <div className="mb-12">
-          <h1 className="text-6xl md:text-7xl font-bold text-black">
+          <h1 className="text-6xl md:text-7xl font-bold text-forground">
              Idea <span className='text-green-500'>Vault</span> 
           </h1>
           <p className="mt-4 max-w-xl">
@@ -16,10 +16,10 @@ const Footer = () => {
         </div>
 
         {/* Grid Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
           {/* Newsletter */}
-          <div>
-            <h3 className=" mb-3 tracking-wide text-black">NEWSLETTER</h3>
+          <div >
+            <h3 className=" mb-3 tracking-wide text-forgroud">NEWSLETTER</h3>
             <p className="mb-4 text-sm">
               Subscribe for exclusive  deals and inspiration .
             </p>
@@ -28,15 +28,15 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Enter email"
-                className="bg-transparent outline-none flex-1 text-sm"
+                className=" outline-none flex-1 text-sm"
               />
-              <span className="text-white text-lg">↗</span>
+              <span className=" text-lg">↗</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className=" mb-3 tracking-wide text-black">QUICK LINKS</h3>
+            <h3 className=" mb-3 tracking-wide text-forgroud">QUICK LINKS</h3>
             <ul className="space-y-2">
               <li className="hover: cursor-pointer">Home</li>
               <li className="hover:cursor-pointer">Ideas</li>
@@ -47,13 +47,13 @@ const Footer = () => {
 
           {/* Support */}
           <div>
-            <h3 className=" mb-3 tracking-wide text-black">SUPPORT</h3>
+            <h3 className=" mb-3 tracking-wide text-forgroud">SUPPORT</h3>
             <ul className="space-y-2">
               <li className="hover:cursor-pointer">Help Center</li>
               <li className="hover: cursor-pointer">
                 Terms of Service
               </li>
-              <li className="hover:text-white cursor-pointer">
+              <li className="hover: cursor-pointer">
                 Privacy Policy
               </li>
             </ul>
@@ -61,7 +61,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className=" mb-3 tracking-wide text-black">CONTACT US</h3>
+            <h3 className=" mb-3 tracking-wide text-forgroud">CONTACT US</h3>
             <ul className="space-y-2">
               <li>786 901 1622</li>
               <li>info@Idea_vault.com</li>

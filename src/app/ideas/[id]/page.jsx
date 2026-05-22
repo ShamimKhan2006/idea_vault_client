@@ -19,23 +19,23 @@ const IdeaDetailsPage =async ({params}) => {
      const item=await res.json()
 
     return (
-        <div className='max-w-6/12 mx-auto my-20'>
-            <div className=" max-w-4xl  border-gray-700 shadow-sm">
+        <div className=' max-w-11/12 lg:max-w-6/12 mx-auto my-20 text-foreground'>
+            <div className=" max-w-4xl   rounded-md">
   <figure>
     <Image
       src={item.imageURL}
       alt="Shoes"
       width={1200}
-      height={400} className=' p-2 mb-4' />
+      height={400} className=' p-2 mb-4 rounded-2xl' />
       
   </figure>
-  <div className="card-body bg-gry-500">
+  <div className="card-body shadow-md rounded-2xl">
    <div className='flex justify-between items-center'>
      <h2 className="card-title font-bold text-3xl">
       {item.ideaTitle}
     </h2>
      
-      <button className="btn btn-soft btn-secondary">{item.category}</button>
+      <button className="badge badge-dash badge-primary">{item.category}</button>
      
    </div>
      <div>

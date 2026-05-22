@@ -6,7 +6,7 @@ export default function NotFound() {
     <div className="min-h-screen flex items-center justify-center bg-black text-white px-6">
       <div className="text-center">
         
-        <h1 className="text-8xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent animate-pulse">
+        <h1 className="text-8xl font-extrabold text-green-500 animate-pulse">
           404
         </h1>
 
@@ -21,7 +21,7 @@ export default function NotFound() {
         <div className="mt-8 flex justify-center gap-4">
           <Link
             href="/"
-            className="px-6 py-3 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 hover:scale-105 duration-300 shadow-lg"
+            className="px-6 py-3 rounded-2xl bg-green-500 hover:scale-105 duration-300 shadow-lg"
           >
             Go Home
           </Link>

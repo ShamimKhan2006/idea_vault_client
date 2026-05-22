@@ -44,9 +44,9 @@ if (data) {
   });
 };
     return (
-        <div className="w-6/12 mx-auto items-center">
-          <Form className="flex flex-col gap-4 max-w-96 text-black  mt-20 ml-65 p-6  rounded-2xl shadow-md"  onSubmit={handleLogin}>
-            <h1 className="my-5  text-center text-2xl md:text-3xl font-bold  text-black">Login <span className="text-green-500">Form</span></h1>
+        <div className="w-full max-w-md px-4 mx-auto items-center ">
+          <Form className=" gap-4  mt-20  p-6  rounded-2xl shadow-md"  onSubmit={handleLogin}>
+            <h1 className="my-5  text-center text-2xl md:text-3xl font-bold  ">Login <span className="text-green-500">Form</span></h1>
       <TextField
         isRequired
         name="email"
@@ -58,7 +58,7 @@ if (data) {
           return null;
         }}
       >
-        <Label className="text-black">Email</Label>
+        <Label className="">Email</Label>
         <Input placeholder="john@example.com" />
         <FieldError />
       </TextField>
@@ -80,8 +80,9 @@ if (data) {
           return null;
         }}
       >
-        <Label className="text-black">Password</Label>
+        <Label className="">Password</Label>
         <Input placeholder="Enter your password" />
+        <span className="text-right text-sm  m-2 font-semibold">Forgot password</span>
         <Description className="text-gray-600">Must be at least 8 characters with 1 uppercase and 1 number</Description>
         <FieldError />
       </TextField>
@@ -98,7 +99,7 @@ if (data) {
                      <Separator className="w-30"></Separator>
                  
                      </div>
-       <Button variant="outline" className="w-full text-black" onClick={handleGoogle}><FcGoogle /> Sign in with Google</Button> 
+       <Button variant="outline" className="w-full mt-4 " onClick={handleGoogle}><FcGoogle /> Sign in with Google</Button> 
         
        <div className="flex gap-2 ml-8 text-gray-600 mt-4">
          <h3>Dont have an Account ? </h3>

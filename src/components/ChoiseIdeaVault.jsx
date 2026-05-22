@@ -7,14 +7,14 @@ import { TfiWorld } from 'react-icons/tfi';
 
 const ChoiseIdeaVault = () => {
     return (
-        <div className='max-w-10/12 mx-auto my-20 '>
+        <div className='w-full max-w-10/12 mx-auto my-20 px-4'>
             <div className='text-center'>
                 <h3 className='text-sm text-green-500 mb-2'>why choses</h3>
                 <h1 className='font-bold text-3xl mb-2'>Why Chose idea Vault</h1>
                  <p> platform built for innovators, dreamers, and future founders.</p>
             </div>
            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10'>
-              <div className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4  ' >
+              <div className= 'w-full h-full shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4  ' >
                <div className='rounded-full border-purple-500 p-4 bg-purple-500'>
                  <FaRegLightbulb className='w-15 h-15'/>
                </div>
