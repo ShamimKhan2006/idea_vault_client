@@ -15,13 +15,13 @@ const IdeasPage = async() => {
 
    
     return (
-           <div className='max-w-10/12 mx-auto bg-white'>
-            <h1 className='text-center my-10 font-bold text-3xl text-purple-500'>All Ideas</h1>
+           <div className='max-w-10/12 mx-auto'>
+            <h1 className='text-center my-10 font-bold text-3xl text-black'>All Ideas</h1>
       
         <div className='grid grid-cols-1  md:grid-cols-3  lg:grid-cols-4 gap-3'>
            {
             data.map(item => <div key={item._id}>
-                <div className=" w-96  bg-white shadow-sm">
+                <div className=" w-96  bg-white shadow-md rounded-2xl">
   <figure>
     <Image
       src={item.imageURL}
@@ -36,14 +36,14 @@ const IdeasPage = async() => {
       {item.ideaTitle}
     </h2>
      
-      <button className="btn btn-soft btn-secondary">{item.category}</button>
+      <button className="badge badge-dash badge-primary">{item.category}</button>
      
    </div>
 
     <p>{item.shortDescription}</p>
     <div className="card-actions flex justify-between">
       <div className="text-green-500 text-2xl">${item.estimatedBudget}</div>
-      <Link href={`/ideas/${item._id}`}><Button variant='primary'>All Details</Button></Link>
+      <Link href={`/ideas/${item._id}`}><Button className="bg-green-500">All Details</Button></Link>
     </div>
   </div>
 </div>
