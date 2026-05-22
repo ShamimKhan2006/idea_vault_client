@@ -60,17 +60,17 @@ const Banner = () => {
 
 
               <div className="relative z-10 flex h-full items-center justify-center px-4">
-                <div className="max-w-3xl text-center text-white">
-                  <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+                <div className="max-w-3xl text-center ">
+                  <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
                     {slide.title}
                   </h1>
 
-                  <p className="mt-5 text-base md:text-xl text-gray-200">
+                  <p className="mt-5 text-base md:text-xl text-white">
                     {slide.description}
                   </p>
 
                   <Link href="/ideas">
-                    <button className="mt-8 rounded-full bg-white px-8 py-3 text-lg font-semibold text-black transition hover:scale-105">
+                    <button className="mt-8 rounded-full bg-purple-500 px-8 py-3 text-lg font-semibold text-white transition hover:scale-105">
                       Explore Ideas
                     </button>
                   </Link>

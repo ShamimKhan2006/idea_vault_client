@@ -1,5 +1,6 @@
 
 'use client'
+import { authClient } from '@/lib/auth-client';
 import React from 'react';
 import toast from 'react-hot-toast';
 
@@ -9,12 +10,16 @@ const AddIdeaPages = () => {
 
         const formData=new FormData(e.currentTarget)
         const newData=Object.fromEntries(formData.entries())
+
+      const {data:tokenData}=await authClient.token()
+    
+
      const res=await fetch(`http://localhost:8000/Addideas 
 `,{
         method:"POST",
         headers:{
-            "content-type":"application/json"
-
+            "content-type":"application/json",
+            authorization:`Bearer ${tokenData?.token}`
         },
        body:JSON.stringify(newData)
 

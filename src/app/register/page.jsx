@@ -82,7 +82,7 @@ const handleRegister= async(e) =>{
               <TextField
                 isRequired
                 minLength={8}
-                name="imageurl"
+                name="image"
                 type="text"
                
               >

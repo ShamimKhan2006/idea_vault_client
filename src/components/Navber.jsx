@@ -2,14 +2,15 @@
 
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button} from "@heroui/react";
+import { redirect, usePathname } from "next/navigation";
+import { Button } from "@heroui/react";
 import ThemeButton from "./ThemeButton";
 import { authClient } from "@/lib/auth-client";
+import Image from "next/image";
 
 const Navber = () => {
   const pathname = usePathname();
-       
+
   const links = [
     { name: "Home", path: "/" },
     { name: "Ideas", path: "/ideas" },
@@ -17,17 +18,22 @@ const Navber = () => {
     { name: "My Ideas", path: "/my-idea" },
     { name: "My Interactions", path: "/my-interections" },
   ];
- 
+     
+  const handleLogout=async()=>{
+     await authClient.signOut();
+     redirect("/")
+  }
+   
+   
 
-
-const { data: session } = authClient.useSession()
-console.log(session, "session")
-
+  const { data: session } = authClient.useSession();
+  console.log(session, "session");
+   const user=session?.user
+        console.log("user",user)
   return (
     <div className="navbar   text-black px-4 md:px-10 shadow-lg">
-{/*  */}
+      {/*  */}
       <div className="navbar-start">
-   
         <div className="dropdown">
           <div
             tabIndex="-1"
@@ -50,20 +56,17 @@ console.log(session, "session")
             </svg>
           </div>
 
-
           <ul
             tabIndex="-1"
             className="menu menu-sm dropdown-content rounded-box z-[100] mt-3 w-60 p-3 shadow-lg gap-2 lg:hidden"
           >
-             {/* bg-[#0b062d] */}
+            {/* bg-[#0b062d] */}
             {links.map((link) => (
               <li key={link.path}>
                 <Link
                   href={link.path}
-                  className={`rounded-lg px-3 py-2 transition-all duration-300 ${
-                    pathname === link.path
-                      ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
-                      : "hover:bg-gray-800"
+                  className={`rounded-lg px-3 py-2 ${
+                    pathname === link.path ? " bg-purple-500 text-white" : ""
                   }`}
                 >
                   {link.name}
@@ -73,15 +76,13 @@ console.log(session, "session")
           </ul>
         </div>
 
-        {/* LOGO */}
         <Link
           href="/"
-          className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
+          className="text-2xl md:text-3xl font-bold bg-purple-500 bg-clip-text text-transparent"
         >
           Idea Vault
         </Link>
       </div>
-
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal gap-3">
@@ -89,10 +90,8 @@ console.log(session, "session")
             <li key={link.path}>
               <Link
                 href={link.path}
-                className={`px-4 py-2 rounded-xl transition-all duration-300 ${
-                  pathname === link.path
-                    ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white"
-                    : "hover:bg-gray-800"
+                className={`px-4 py-2 rounded-xl  ${
+                  pathname === link.path ? "bg-purple-500 text-white" : ""
                 }`}
               >
                 {link.name}
@@ -102,22 +101,54 @@ console.log(session, "session")
         </ul>
       </div>
 
-      <div className="navbar-end gap-2 md:gap-4">
-           <ThemeButton></ThemeButton>
-        <Link href={"/login"}>
-          <Button className="border border-pink-500 bg-transparent text-white rounded-xl hover:bg-pink-500 transition-all duration-300">
-            Login
-          </Button>
-        </Link>
+ 
+     <div className="navbar-end gap-2 md:gap-4">
+  <ThemeButton className="border-gray-400" />
 
-        <Link href={"/register"}>
-          {" "}
-          <Button className="bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl hover:scale-105 transition-all duration-300">
-            Register
-          </Button>
-        </Link>
-      </div>
-    </div>
+  {!user ? (
+    <>
+      <Link href={"/login"}>
+        <Button
+          variant="outline"
+          className="border-gray-500 text-black transition-all duration-300"
+        >
+          Login
+        </Button>
+      </Link>
+
+      <Link href={"/register"}>
+        <Button className="bg-purple-500 text-white rounded-xl transition-all duration-300">
+          Register
+        </Button>
+      </Link>
+    </>
+  ) : (
+    <details className="dropdown dropdown-end">
+      <summary className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full overflow-hidden">
+          <Image
+            src={user?.image}
+            alt="user"
+            width={40}
+            height={40}
+          />
+        </div>
+      </summary>
+
+      <ul className="menu dropdown-content bg-white text-black rounded-box z-[100] mt-3 w-52 p-2 shadow">
+        <li>
+          <Link href={"/profile"}>Profile</Link>
+        </li>
+
+        <li>
+          <Button onClick={handleLogout}>Logout</Button>
+        </li>
+      </ul>
+    </details>
+  )}
+</div>
+      </div> 
+
   );
 };
 

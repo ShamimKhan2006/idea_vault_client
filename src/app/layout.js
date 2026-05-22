@@ -4,7 +4,7 @@ import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
 import Providers from "./providers";
-import Marquee from "react-fast-marquee";
+
 
 const f = Rubik({
 

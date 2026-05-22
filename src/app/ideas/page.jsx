@@ -16,7 +16,7 @@ const IdeasPage = async() => {
    
     return (
            <div className='max-w-10/12 mx-auto bg-white'>
-            <h1 className='text-center my-10 font-bold text-3xl'>All Ideas</h1>
+            <h1 className='text-center my-10 font-bold text-3xl text-purple-500'>All Ideas</h1>
       
         <div className='grid grid-cols-1  md:grid-cols-3  lg:grid-cols-4 gap-3'>
            {

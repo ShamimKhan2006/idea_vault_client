@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaRegLightbulb } from 'react-icons/fa';
-import { FcIdea } from 'react-icons/fc';
+
 import { RxPeople } from 'react-icons/rx';
 import { SiSimpleanalytics } from 'react-icons/si';
 import { TfiWorld } from 'react-icons/tfi';
@@ -14,39 +14,39 @@ const ChoiseIdeaVault = () => {
                  <p> platform built for innovators, dreamers, and future founders.</p>
             </div>
            <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10'>
-              <div className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4 ' >
+              <div className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4  bg-[#E2E8F0]' >
                <div className='rounded-full border-purple-500 p-4 bg-purple-500'>
                  <FaRegLightbulb className='w-15 h-15'/>
                </div>
                 <div>
                     <h2 className='font-bold text-md'>Share Unique Ideas</h2>
-                    <p>Share your startup ideas with the community and get valuable feedback.</p>                </div>
+                    <p  className="text-gray-400">Share your startup ideas with the community and get valuable feedback.</p>                </div>
              </div>
-             <div  className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4'>
+             <div  className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4  bg-[#E2E8F0]'>
                  <div className='rounded-full border-green-500 p-4 bg-green-500'>
                     <RxPeople className='w-15 h-15' />
                  </div>
                 <div>
                     <h2 className='font-bold text-md'>Connect With Innovators</h2>
-                    <p>Connect with like-minded people, collaborate, and build great things together</p>               
+                    <p className="text-gray-400">Connect with like-minded people, collaborate, and build great things together</p>               
                      </div>
              </div>
-             <div  className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4'>
+             <div  className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4  bg-[#E2E8F0]'>
                 <div className='rounded-full border-yellow-500 p-4 bg-yellow-500'>
                     <SiSimpleanalytics className='w-15 h-15' />
                 </div>
                 <div>
                     <h2 className='font-bold text-md'>Validate Your Startup</h2>
-                    <p>Validate your ideas, analyze market trends, and increase your chances of success.</p>                
+                    <p className="text-gray-400">Validate your ideas, analyze market trends, and increase your chances of success.</p>                
                     </div>
              </div>
-             <div  className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4'>
+             <div  className='shadow-sm rounded-2xl flex justify-between items-center gap-6 p-4  bg-[#E2E8F0]'>
                 <div className='rounded-full border-blue-500 p-4 bg-blue-500'>
                     <TfiWorld  className='w-15 h-15'/>
                 </div>
                 <div>
                     <h2 className='font-bold text-md'>Build Future Solutions</h2>
-                    <p>Contribute to real-world problems and help build solutions for the future..</p>              
+                    <p className="text-gray-400">Contribute to real-world problems and help build solutions for the future..</p>              
                       </div>
              </div>
            </div>

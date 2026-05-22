@@ -1,14 +1,23 @@
 
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
 const IdeaDetailsPage =async ({params}) => {
     const {id}=await params
-
-     const res=await fetch (`http://localhost:8000/ideas/${id}`)
+    const {token}= await auth.api.getToken({
+      headers:await headers()
+    })
+       console.log(token)
+     const res=await fetch (`http://localhost:8000/ideas/${id}`,{
+      headers:{
+          authorization:`Bearer ${token}`
+      }
+     })
      const item=await res.json()
-    console.log(item)
+
     return (
         <div className='max-w-6/12 mx-auto my-20'>
             <div className=" max-w-4xl  border-gray-700 shadow-sm">
