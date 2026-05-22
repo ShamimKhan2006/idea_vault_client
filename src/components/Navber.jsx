@@ -31,7 +31,7 @@ const Navber = () => {
    const user=session?.user
         console.log("user",user)
   return (
-    <div className="navbar   text-black px-4 md:px-10 shadow-lg">
+    <div className="navbar   text-black px-4 md:px-10 shadow-lg  bg-base-00">
       {/*  */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -57,16 +57,16 @@ const Navber = () => {
           </div>
 
           <ul
-            tabIndex="-1"
-            className="menu menu-sm dropdown-content rounded-box z-[100] mt-3 w-60 p-3 shadow-lg gap-2 lg:hidden"
+            tabIndex={-1}
+            className="menu menu-sm dropdown-content rounded-box z-[100] mt-3 w-60 p-3 shadow-lg gap-2 lg:hidden  "
           >
-            {/* bg-[#0b062d] */}
+            {/**/}
             {links.map((link) => (
               <li key={link.path}>
                 <Link
                   href={link.path}
                   className={`rounded-lg px-3 py-2 ${
-                    pathname === link.path ? " bg-purple-500 text-white" : ""
+                    pathname === link.path ? " border border-green-500" : ""
                   }`}
                 >
                   {link.name}
@@ -78,9 +78,9 @@ const Navber = () => {
 
         <Link
           href="/"
-          className="text-2xl md:text-3xl font-bold bg-purple-500 bg-clip-text text-transparent"
+          className="text-2xl md:text-3xl font-bold text-black "
         >
-          Idea Vault
+          Idea <span className="text-green-500">Vault</span>
         </Link>
       </div>
 
@@ -91,7 +91,7 @@ const Navber = () => {
               <Link
                 href={link.path}
                 className={`px-4 py-2 rounded-xl  ${
-                  pathname === link.path ? "bg-purple-500 text-white" : ""
+                  pathname === link.path ? "border-b-2 border-green-500" : ""
                 }`}
               >
                 {link.name}
@@ -117,7 +117,7 @@ const Navber = () => {
       </Link>
 
       <Link href={"/register"}>
-        <Button className="bg-purple-500 text-white rounded-xl transition-all duration-300">
+        <Button className="bg-green-500 text-white rounded-xl transition-all duration-300">
           Register
         </Button>
       </Link>

@@ -19,14 +19,14 @@ const Home_idea = async() => {
          <div className='max-w-10/12 mx-auto '>
                   <div className='flex justify-between items-center'>
                      <h1 className=' my-10 font-bold text-3xl '>All Ideas</h1>
-                     <p className='flex gap-2 text-purple-500 font-semibold'>View All <ArrowRight/>
+                     <p className='flex gap-2 text-green-500 font-semibold'>View All <ArrowRight/>
                      </p>
                   </div>
              
                <div className='grid grid-cols-1  md:grid-cols-3  lg:grid-cols-4 gap-3'>
                   {
                    homeIdea.map(item => <div key={item._id}>
-                       <div className=" w-96  bg-[#E2E8F0] shadow-sm rounded-2xl">
+                       <div className=" w-96   shadow-md rounded-2xl">
          <figure>
            <Image
              src={item.imageURL}
@@ -48,7 +48,7 @@ const Home_idea = async() => {
            <p className='text-gray-400'>{item.shortDescription}</p>
            <div className="card-actions flex justify-between ">
              <div className="text-red-500 text-2xl">${item.estimatedBudget}</div>
-             <Link href={`/ideas/${item._id}`}><Button utton className={"bg-purple-500 w-full "}>All Details</Button></Link>
+             <Link href={`/ideas/${item._id}`}><Button utton className={"bg-green-500 w-full "}>All Details</Button></Link>
            </div>
          </div>
        </div>
