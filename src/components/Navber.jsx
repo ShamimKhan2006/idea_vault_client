@@ -3,10 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import { redirect, usePathname } from "next/navigation";
-import { Button } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 import ThemeButton from "./ThemeButton";
 import { authClient } from "@/lib/auth-client";
-import Image from "next/image";
+
+import { LogOutIcon, UserCheckIcon } from "lucide-react";
 
 const Navber = () => {
   const pathname = usePathname();
@@ -121,25 +122,24 @@ const Navber = () => {
         ) : (
           <details className="dropdown dropdown-end">
             <summary className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full overflow-hidden">
-                <Image
-                  src={user?.image}
-                  alt="user"
-                  width={40}
-                  height={40}
-                />
-              </div>
+              <Avatar>
+        <Avatar.Image
+          alt="Blue"
+          src={user?.image}
+        />
+        <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
+      </Avatar>
             </summary>
 
-            <ul className="menu dropdown-content bg-content1 text-foreground rounded-box z-[100] mt-3 w-52 p-2 shadow">
+            <ul className="menu dropdown-content text-foreground rounded-box z-40 mt-3 w-52 p-2 shadow">
               <li>
-                <Link href={"/profile"}>Profile</Link>
+                <Link className="font-semibold" href={"/profile"}><UserCheckIcon></UserCheckIcon> Profile</Link>
               </li>
 
               <li>
-                <Button onClick={handleLogout} className="bg-transparent text-foreground justify-start px-3 shadow-none hover:bg-default-100">
-                  Logout
-                </Button>
+                <span onClick={handleLogout} className=" font-semibold text-foreground justify-start px-3 shadow-md">
+                <LogOutIcon/>  Logout
+                </span>
               </li>
             </ul>
           </details>
