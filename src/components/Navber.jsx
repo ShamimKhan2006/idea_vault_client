@@ -137,7 +137,7 @@ const Navber = () => {
               </li>
 
               <li>
-                <span onClick={handleLogout} className=" font-semibold text-foreground justify-start px-3 shadow-md">
+                <span onClick={handleLogout} className=" font-semibold text-foreground justify-start px-3 shadow-md text-red-500">
                 <LogOutIcon/>  Logout
                 </span>
               </li>

@@ -3,13 +3,15 @@ import { EditModal } from '@/components/EditModal';
 import { authClient } from '@/lib/auth-client';
 import { Avatar, Button, Card } from '@heroui/react';
 import React from 'react';
-import { BiEdit } from 'react-icons/bi';
+
 
 const ProfilePage = () => {
      const { data: session } = authClient.useSession();
       console.log(session, "session");
       const user = session?.user;
-      console.log("user", user);
+      console.log("user",user)
+
+
     return (
         
            <div className='max-w-md mx-auto px-4 mt-10 shadow-md p-10'>
@@ -30,7 +32,7 @@ const ProfilePage = () => {
                   <h1 className='font-bold py-4'>{user?.name}</h1>
                   <p className='mb-4'>{user?.email}</p>
 
-              <EditModal/>
+              <EditModal user={user?.id} />
            </div>
         
     );
