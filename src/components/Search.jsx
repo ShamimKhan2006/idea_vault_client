@@ -15,7 +15,7 @@ const Search = () => {
 
   const handle = (e) => {
     e.preventDefault();
-    router.push(`/ideas?search=${search}`);
+    router.push(`/ideas?search=${encodeURIComponent(search)}`);
   };
 
   return (
@@ -25,11 +25,13 @@ const Search = () => {
 
           <SearchField.Group>
             <SearchField.SearchIcon />
+
             <SearchField.Input
               placeholder="Search..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
+
             <SearchField.ClearButton
               onClick={() => setSearch("")}
             />
