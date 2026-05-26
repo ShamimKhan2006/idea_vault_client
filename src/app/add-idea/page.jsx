@@ -14,8 +14,7 @@ const AddIdeaPages = () => {
       const {data:tokenData}=await authClient.token()
     
 
-     const res=await fetch(`http://localhost:8000/Addideas 
-`,{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/Addideas`,{
         method:"POST",
         headers:{
             "content-type":"application/json",

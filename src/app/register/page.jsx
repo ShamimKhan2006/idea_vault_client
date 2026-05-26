@@ -16,7 +16,7 @@ const handleRegister= async(e) =>{
     const newData=Object.fromEntries(formData.entries())
     
 
-    const res = await fetch("http://localhost:8000/regis", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/regis`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

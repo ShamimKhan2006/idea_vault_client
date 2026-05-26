@@ -11,7 +11,7 @@ const IdeaDetailsPage =async ({params}) => {
       headers:await headers()
     })
        console.log(token)
-     const res=await fetch (`http://localhost:8000/ideas/${id}`,{
+     const res=await fetch (`${process.env.NEXT_PUBLIC_URL}/${id}`,{
       headers:{
           authorization:`Bearer ${token}`
       }

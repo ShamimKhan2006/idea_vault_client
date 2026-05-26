@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 
 const AllCards = () => {
-     const res=fetch("http://localhost:8000/")
+     const res=fetch(`${process.env.NEXT_PUBLIC_URL}/`)
 
     return (
         <div className="card bg-base-100 w-96 shadow-sm">

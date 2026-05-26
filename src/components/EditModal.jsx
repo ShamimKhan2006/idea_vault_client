@@ -11,6 +11,8 @@ import {
 } from "@heroui/react";
 
 import { User2 } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 import { BiEdit } from "react-icons/bi";
 
 export function EditModal() {
@@ -29,8 +31,8 @@ export function EditModal() {
       image: newData.image,
    
     });
-
-    console.log(res);
+    
+  
   };
 
   return (

@@ -1,11 +1,33 @@
 "use client";
 
-import {Envelope} from "@gravity-ui/icons";
+
 import {Button, Description, Input, Label, Modal, Surface, TextField} from "@heroui/react";
+import { useRouter } from "next/navigation";
 import { BiEdit } from "react-icons/bi";
 
 export function CardEditModal({item}) {
-    console.log(item)
+  const router=useRouter()
+  const editHandle=async(e)=>{
+    e.preventDefault()
+    const formData=new FormData(e.currentTarget)
+    const newData=Object.fromEntries(formData.entries())
+
+
+
+   const res=await fetch(`${process.env.NEXT_PUBLIC_URL}/edit/${item._id}`,{
+    method:"PATCH",
+
+    headers:{
+         "content-type":"application/json"
+    },body:JSON.stringify(newData)
+   })
+   const data= await res.json()
+       if(data.modifiedCount > 0){
+        router.refresh()
+       }
+
+  }
+
      const categories = [
         "Tech",
         "Health",
@@ -30,7 +52,7 @@ export function CardEditModal({item}) {
             </Modal.Header>
             <Modal.Body className="p-6">
               <Surface variant="default">
-               <form className="space-y-6">
+               <form onSubmit={editHandle} className="space-y-6">
           {/* Idea Title */}
           <div>
             <label className="block mb-2 font-medium   text-forground">

@@ -19,7 +19,7 @@ const MyideaPage = async () => {
 
   const user = session?.user;
  
-  const res = await fetch(`http://localhost:8000/myidea`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/myidea`, {
     caches: "no-store",
     headers: {
       "content-type": "application/json",
@@ -31,7 +31,7 @@ const MyideaPage = async () => {
 
   return <div>
           <div className='w-full max-w-10/12 mx-auto text-foreground'>
-            <h1 className='text-center my-10 font-bold text-3xl text-black'>All Ideas</h1>
+            <h1 className='text-center my-10 font-bold text-3xl text-black'>My Ideas</h1>
       
         <div className='grid grid-cols-1  md:grid-cols-2  lg:grid-cols-4 gap-3'>
            {
@@ -61,7 +61,7 @@ const MyideaPage = async () => {
       <Link href={`/ideas/${item._id}`}><Button className="bg-green-500">All Details</Button></Link>
       <div className="flex justify-between gap-10 mt-6 items-center">
         <CardEditModal  item={item} />
-       <DeleteModal/>
+       <DeleteModal item={item} />
       </div>
     </div>
   </div>

@@ -1,8 +1,21 @@
 "use client";
 import React from 'react';
 import {AlertDialog, Button} from "@heroui/react";
+import { useRouter } from 'next/navigation';
 
-const DeleteModal = () => {
+const DeleteModal = ({item}) => {
+  const router=useRouter()
+   const handleDelete=async()=>{
+    const res=await fetch(`${process.env.NEXT_PUBLIC_URL}/delete/${item._id}`,{
+  
+      method:"DELETE",
+      
+    })
+    const data= await res.json()
+     if(data.deletedCount >0){
+        router.refresh()
+      }
+   }
     return (
         <div>
             <AlertDialog>
@@ -25,7 +38,7 @@ const DeleteModal = () => {
               <Button slot="close" variant="tertiary">
                 Cancel
               </Button>
-              <Button slot="close" variant="danger">
+              <Button slot="close" variant="danger" onClick={handleDelete}>
                 Delete 
               </Button>
             </AlertDialog.Footer>
