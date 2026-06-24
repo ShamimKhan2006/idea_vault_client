@@ -6,60 +6,64 @@ import React from 'react';
 export const dynamic = "force-dynamic";
 
 const IdeaDetailsPage = async ({ params }) => {
-  const { id } = params;
+  const { id } = await  params;
 
-  const headersList = headers();
+ 
 
   const { token } = await auth.api.getToken({
-    headers: headersList,
+    headers: await headers(),
   });
-
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/${id}`, {
+    // console.log("token",token)
+ const res = await fetch(
+  `${process.env.NEXT_PUBLIC_URL}/ideas/${id}`,
+  {
     headers: {
-      Authorization: `Bearer ${token || ""}`,
+      authorization: `Bearer ${token}`,
     },
     cache: "no-store",
-  });
+  }
+);
 
   const item = await res.json();
+  console.log("item",item)
 
   return (
     <div className="max-w-11/12 lg:max-w-6/12 mx-auto my-20 text-foreground">
       <div className="max-w-4xl rounded-md">
 
-        <figure>
+         <figure>
           <Image
-            src={item.imageURL}
-            alt={item.ideaTitle || "idea image"}
+            src={item?.imageURL}
+            alt={item?.ideaTitle}
             width={1200}
             height={400}
             className="p-2 mb-4 rounded-2xl"
           />
-        </figure>
+        </figure> 
 
         <div className="card-body shadow-md rounded-2xl">
 
           <div className="flex justify-between items-center">
             <h2 className="card-title font-bold text-3xl">
-              {item.ideaTitle}
+              {item?.ideaTitle}
             </h2>
 
             <button className="badge badge-dash badge-primary">
-              {item.category}
+              {item?.category}
             </button>
           </div>
 
-          <p className="text-2xl">{item.shortDescription}</p>
-          <p className="font-semibold">{item.detailedDescription}</p>
+          <p className="text-2xl">{item?.shortDescription}</p>
+          <p className="font-semibold">{item?.detailedDescription}</p>
 
           <div className="text-red-500 text-2xl">
-            ${item.estimatedBudget}
+            ${item?.estimatedBudget}
           </div>
 
           <div className="flex justify-between items-start">
             <div>
-              <p>{item.problemStatement}</p>
-              <p className="text-green-500">{item.targetAudience}</p>
+              <p>{item?.problemStatement}</p>
+              <p className="text-green-500">{item?.targetAudience}</p>
             </div>
 
             <div>

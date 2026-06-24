@@ -31,9 +31,9 @@ const Navber = () => {
   console.log("user", user);
 
   return (
-    <div className="navbar text-foreground bg-background px-4  md:px-10 shadow-lg">
+    <div className="navbar  text-foreground bg-background px-4  md:px-10 shadow-lg">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown ">
           <div
             tabIndex="-1"
             role="button"

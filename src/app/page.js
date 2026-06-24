@@ -2,7 +2,7 @@ import Banner from "@/components/Banner";
 import ChoiseIdeaVault from "@/components/ChoiseIdeaVault";
 import Home_idea from "@/components/Home_idea";
 import Section from "@/components/Section";
-import Testimonial from "@/components/Testimonial";
+
 import TrendingCategoris from "@/components/TrendingCategoris";
 
 

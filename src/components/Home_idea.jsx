@@ -6,12 +6,19 @@ import Link from 'next/link';
 import React from 'react';
 
 const Home_idea = async() => {
-    const res=await fetch(`${process.env.NEXT_PUBLIC_URL}/featured`,{
-        headers:{
-            "content-type":"application/json"
-        },
-        body:JSON.stringify()
-    })
+    // const res=await fetch(`${process.env.NEXT_PUBLIC_URL}/featured`,{
+    //     headers:{
+    //         "content-type":"application/json"
+    //     },
+    //     body:JSON.stringify()
+    // })
+
+    const res = await fetch(
+  `${process.env.NEXT_PUBLIC_URL}/featured`,
+  {
+    cache: "no-store",
+  }
+);
     const homeIdea=await res.json()
     console.log(homeIdea)
 

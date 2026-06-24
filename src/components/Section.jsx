@@ -3,15 +3,15 @@ import React from 'react';
 
 const Section = () => {
     return (
-          <div className="hero bg-base-200 container mx-auto  rounded-3xl mt-20">
-      <div className="hero-content  flex justify-center items-center gap-10 lg:flex-row-reverse ">
+          <div className="hero bg-base-200   rounded-3xl mt-20">
+      <div className="hero-content max-w-10/12 mx-auto  grid grid-cols-1 md:grid-cols-2  items-center gap-10">
 
         <Image
           src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
           alt="Idea Vault Collaboration"
           width={950}
           height={950}
-          className="rounded-lg shadow-2xl object-cover border border-base-300 ml-10"
+          className="rounded-lg shadow-2xl object-cover border border-base-300"
         />
 
         <div>
@@ -19,7 +19,7 @@ const Section = () => {
             Creative Idea Platform
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
             Store, <span className='text-green-500'>Share & Build</span> <br />
             Your Next Big Idea
           </h1>

@@ -1,4 +1,4 @@
-import { Geist, Rubik } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import Navber from "@/components/Navber";
 import Footer from "@/components/Footer";

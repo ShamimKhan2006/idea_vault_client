@@ -19,32 +19,43 @@ const Search = () => {
   };
 
   return (
-    <div className="w-full mx-auto my-10">
+    <div className="w-full  md:max-w-4xl  my-10">
+      <div>
+        
+    
       <form onSubmit={handle}>
-        <div className="flex items-center gap-4">
+        <div>
 
           <SearchField.Group>
-            <SearchField.SearchIcon />
-
+           
+           <div className="flex items-center gap-4  p-2">
+              <SearchField.SearchIcon />
             <SearchField.Input
+            
               placeholder="Search..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
+                 <Button className="bg-green-500 font-bold">Search</Button>
+        <Category/>
+           </div>
+            
 
-            <SearchField.ClearButton
+            {/* <SearchField.ClearButton
               onClick={() => setSearch("")}
-            />
+            /> */}
+   
           </SearchField.Group>
+            
 
-          <Button type="submit" className="bg-green-500 text-white">
-            Search
-          </Button>
+          
 
-          <Category />
+        
 
         </div>
+        
       </form>
+        </div>
     </div>
   );
 };

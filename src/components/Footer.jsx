@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-       <div className='w-full '>
+       <div className='w-full max-w-11/12 mx-auto'>
         {/*  */}
-             <footer className="  px-6 md:px-16 py-16 mt-20">
+             <footer className="  px-6 md:px-16 py-16 mt-20 ">
       <div>
         <div className="mb-12">
           <h1 className="text-6xl md:text-7xl font-bold text-forground">

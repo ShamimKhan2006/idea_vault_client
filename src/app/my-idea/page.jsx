@@ -5,7 +5,7 @@ import { Button } from "@heroui/react";
 import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import { BiEdit } from "react-icons/bi";
+
 
 
 const MyideaPage = async () => {
@@ -28,6 +28,7 @@ const MyideaPage = async () => {
   });
 
   const data = await res.json();
+  console.log(data)
 
   return <div>
           <div className='w-full max-w-10/12 mx-auto text-foreground'>
@@ -35,7 +36,7 @@ const MyideaPage = async () => {
       
         <div className='grid grid-cols-1  md:grid-cols-2  lg:grid-cols-4 gap-3'>
            {
-            data.map(item => <div key={item._id} > 
+            data?.map(item => <div key={item._id} > 
                 <div className="  shadow-md rounded-2xl text-foreground h-full">
   <figure>
     <Image
@@ -58,7 +59,7 @@ const MyideaPage = async () => {
     <p>{item.shortDescription}</p>
     <div className="card-actions flex justify-between">
       <div className="text-green-500 text-2xl">${item.estimatedBudget}</div>
-      <Link href={`/ideas/${item._id}`}><Button className="bg-green-500">All Details</Button></Link>
+      <Link href={`/ideas/${item._id}`}><Button className="bg-green-500 mt-5">All Details</Button></Link>
       <div className="flex justify-between gap-10 mt-6 items-center">
         <CardEditModal  item={item} />
        <DeleteModal item={item} />
