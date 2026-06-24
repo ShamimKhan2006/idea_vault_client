@@ -6,40 +6,80 @@ import Link from "next/link";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 const LoginPage = () => {
- const handleLogin=async(e) =>{
-    e.preventDefault()
 
-    const formData=new FormData(e.currentTarget)
-    const newData=Object.fromEntries(formData.entries())
-    console.log(newData)
+//  const handleLogin=async(e) =>{
+//     e.preventDefault()
+
+//     const formData=new FormData(e.currentTarget)
+//     const newData=Object.fromEntries(formData.entries())
+//     console.log(newData)
       
 
 
      
 
-    const { data, error } = await authClient.signIn.email({
-    ...newData,
-    rememberMe: true,
-    callbackURL:"/ideas"
+//     const { data, error } = await authClient.signIn.email({
+//     ...newData,
+//     rememberMe: true,
+//     callbackURL:"/ideas"
    
-});
+// });
      
 
 
-if (error) {
-  toast.error(error.message || "Login Failed!");
-  return;
-}
+// if (error) {
+//   toast.error(error.message || "Login Failed!");
+//   return;
+// }
 
-if (data) {
-  toast.success("Login Successfully");
- }
+// if (data) {
+//   toast.success("Login Successfully");
+//  }
 
 
- }
+//  }
 
-  const handleGoogle = async () => {
-  const data = await authClient.signIn.social({
+//   const handleGoogle = async () => {
+//   const data = await authClient.signIn.social({
+//     provider: "google",
+//   });
+// };
+  const handleLogin = async (e) => { 
+  e.preventDefault();
+
+  const formData = new FormData(e.currentTarget);
+  const newData = Object.fromEntries(formData.entries());
+
+  console.log(newData);
+
+  const { data, error } = await authClient.signIn.email({
+    ...newData,
+    callbackURL: "/",
+  });
+
+   console.log("DATA:", data);
+  console.log("ERROR:", error);
+  if(data){       toast.success("Login Successfully")   
+        redirect("/")
+   }
+
+  if (error) {
+    toast.error(error.message || "Login Failed");
+    return;
+  }
+
+  // await fetch(`${process.env.NEXT_PUBLIC_URL}/login`, {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(newData),
+  // });
+
+  toast.success("login Successfully");
+};
+const handleGoogle = async () => {
+  await authClient.signIn.social({
     provider: "google",
   });
 };
