@@ -9,14 +9,92 @@ import { FcGoogle } from "react-icons/fc";
 const RegisterPage = () => {
 
 
-const handleRegister= async(e) =>{
-    e.preventDefault()
-
-    const formData=new FormData(e.currentTarget)
-    const newData=Object.fromEntries(formData.entries())
+// const handleRegister= async(e) =>{
+//     e.preventDefault()
+//      console.log("Register clicked");
+//     const formData=new FormData(e.currentTarget)
+//     const newData=Object.fromEntries(formData.entries())
     
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/regis`, {
+//     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/regis`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify(newData),
+//   });
+
+//   const realdata = await res.json();
+//   console.log(realdata);
+
+    
+//         const { data, error } = await authClient.signUp.email({
+//       ...newData,
+//     callbackURL:"/"
+// });
+
+//     if(data){
+//       toast.success("Register Successfully")
+//       redirect("/login")
+//     }
+
+//     if(error){
+//       toast.error(error.message("Register Faield"))
+//     }
+
+//  }
+// const { data, error } = await authClient.signUp.email({
+//   ...newData,
+//   callbackURL: "/",
+// });
+
+// if (error) {
+//   toast.error(error.message);
+//   return;
+// }
+
+// // signup success হলে DB save করো
+// await fetch(`${process.env.NEXT_PUBLIC_URL}/regis`, {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify(newData),
+// });
+      
+
+
+//    const handleGoogle = async () => {
+//    await authClient.signIn.social({
+//     provider: "google",
+//   });
+// };
+
+  const handleRegister = async (e) => { 
+  e.preventDefault();
+
+  const formData = new FormData(e.currentTarget);
+  const newData = Object.fromEntries(formData.entries());
+
+  console.log(newData);
+
+  const { data, error } = await authClient.signUp.email({
+    ...newData,
+    callbackURL: "/",
+  });
+
+  // console.log("DATA:", data);
+  // console.log("ERROR:", error);
+  if(data){       toast.success("Register Successfully")   
+        redirect("/login")
+   }
+
+  if (error) {
+    toast.error(error.message || "Register Failed");
+    return;
+  }
+
+  await fetch(`${process.env.NEXT_PUBLIC_URL}/regis`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,33 +102,13 @@ const handleRegister= async(e) =>{
     body: JSON.stringify(newData),
   });
 
-  const realdata = await res.json();
-  console.log(realdata);
-
-    
-        const { data, error } = await authClient.signUp.email({
-      ...newData,
-    callbackURL:"/"
-});
-
-    if(data){
-      toast.success("Register Successfully")
-      redirect("/login")
-    }
-
-    if(error){
-      toast.error(error.message("Register Faield"))
-    }
-
- }
-
-   const handleGoogle = async () => {
-  const data = await authClient.signIn.social({
+  toast.success("Register Successfully");
+};
+const handleGoogle = async () => {
+  await authClient.signIn.social({
     provider: "google",
   });
 };
-
-  
 
 
     return (
@@ -131,6 +189,6 @@ const handleRegister= async(e) =>{
               
             </Form> 
                 </div>)
-};
-                    
+
+              }               
 export default RegisterPage;
