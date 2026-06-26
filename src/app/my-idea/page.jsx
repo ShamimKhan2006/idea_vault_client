@@ -1,6 +1,7 @@
 import { CardEditModal } from "@/components/CardEdittModal";
 import DeleteModal from "@/components/DeleteModal";
-import { authClient } from "@/lib/auth-client";
+import { auth } from "@/lib/auth";
+
 
 import { Button } from "@heroui/react";
 import { headers } from "next/headers";
@@ -10,7 +11,7 @@ import Link from "next/link";
 
 
 const MyideaPage = async () => {
-  const session =await authClient.getSession({
+const session = await auth.api.getSession({
     headers: await headers(),
   });
 
@@ -18,10 +19,11 @@ const MyideaPage = async () => {
     headers: await headers(),
   });
 
-  const user = session?.user;
+  const user = session?.user; 
+  console.log("userrrrrrr",user)
  
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/myidea`, {
-    caches: "no-store",
+    cache: "no-store",
     headers: {
       "content-type": "application/json",
        authorization: `Bearer ${token}`
