@@ -17,7 +17,7 @@ const Navber = () => {
     { name: "Ideas", path: "/ideas" },
     { name: "Add Idea", path: "/add-idea" },
     { name: "My Ideas", path: "/my-idea" },
-    { name: "My Interactions", path: "/my-interections" },
+    { name: "My Interactions", path: "/my-interactions" },
   ];
 
   const handleLogout = async () => {

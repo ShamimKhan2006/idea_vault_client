@@ -28,7 +28,7 @@ const MyideaPage = async () => {
   });
 
   const data = await res.json();
-  console.log(data)
+  console.log("data",data)
 
   return <div>
           <div className='w-full max-w-10/12 mx-auto text-foreground'>
