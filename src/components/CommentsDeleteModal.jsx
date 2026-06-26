@@ -1,12 +1,16 @@
+
+
+
 "use client";
 import React from 'react';
 import {AlertDialog, Button} from "@heroui/react";
 import { useRouter } from 'next/navigation';
 
-const DeleteModal = ({item}) => {
-  const router=useRouter()
+
+const CommentsDeleteModal = ({r}) => {
+    const router=useRouter()
    const handleDelete=async()=>{
-    const res=await fetch(`${process.env.NEXT_PUBLIC_URL}/delete/${item._id}`,{
+    const res=await fetch(`${process.env.NEXT_PUBLIC_URL}/comments/${r._id}`,{
   
       method:"DELETE",
       
@@ -17,12 +21,12 @@ const DeleteModal = ({item}) => {
       }
    }
     return (
-        <div>
+          <div>
             <AlertDialog>
       <Button variant="danger">Delete</Button>
       <AlertDialog.Backdrop>
         <AlertDialog.Container>
-          <AlertDialog.Dialog className="sm:max-w-[400px] text-foreground">
+          <AlertDialog.Dialog className="sm:max-w-[400px]">
             <AlertDialog.CloseTrigger />
             <AlertDialog.Header>
               <AlertDialog.Icon status="danger" />
@@ -50,4 +54,4 @@ const DeleteModal = ({item}) => {
     );
 };
 
-export default DeleteModal;
+export default CommentsDeleteModal;

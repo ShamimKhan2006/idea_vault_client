@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Button, SearchField } from "@heroui/react";
-import Category from "./Category";
+
 
 const Search = () => {
   const router = useRouter();
@@ -37,7 +37,7 @@ const Search = () => {
               onChange={(e) => setSearch(e.target.value)}
             />
                  <Button className="bg-green-500 font-bold">Search</Button>
-        <Category/>
+     
            </div>
             
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Section = () => {
     return (
-          <div className="hero bg-base-200   rounded-3xl mt-20">
+          <div className="hero    rounded-3xl mt-20">
       <div className="hero-content max-w-10/12 mx-auto  grid grid-cols-1 md:grid-cols-2  items-center gap-10">
 
         <Image
