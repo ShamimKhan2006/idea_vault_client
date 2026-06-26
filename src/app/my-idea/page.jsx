@@ -1,6 +1,7 @@
 import { CardEditModal } from "@/components/CardEdittModal";
 import DeleteModal from "@/components/DeleteModal";
-import { auth } from "@/lib/auth";
+import { authClient } from "@/lib/auth-client";
+
 import { Button } from "@heroui/react";
 import { headers } from "next/headers";
 import Image from "next/image";
@@ -9,7 +10,7 @@ import Link from "next/link";
 
 
 const MyideaPage = async () => {
-  const session = await auth.api.getSession({
+  const session =await authClient.getSession({
     headers: await headers(),
   });
 
@@ -28,7 +29,7 @@ const MyideaPage = async () => {
   });
 
   const data = await res.json();
-  console.log("data",data)
+console.log("data",data)
 
   return <div>
           <div className='w-full max-w-10/12 mx-auto text-foreground'>
