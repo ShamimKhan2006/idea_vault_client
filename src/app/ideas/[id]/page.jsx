@@ -63,7 +63,7 @@ const IdeaDetailsPage = async ({ params }) => {
               <p className="text-green-500">{item?.targetAudience}</p>
             </div>
 
-            <div>
+            {/* <div>
               {typeof item?.tags === "string"
                 ? item.tags
                     .split(",")
@@ -71,7 +71,7 @@ const IdeaDetailsPage = async ({ params }) => {
                 : Array.isArray(item?.tags)
                   ? item.tags.map((tag, ind) => <li key={ind}>{tag}</li>)
                   : null}
-            </div>
+            </div> */}
 
           </div>
         </div>
