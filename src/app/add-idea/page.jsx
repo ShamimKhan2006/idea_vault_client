@@ -14,11 +14,11 @@ const AddIdeaPages = () => {
       const {data:tokenData}=await authClient.token()
     
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/Addideas`,{
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/addideas`,{
         method:"POST",
         headers:{
-            "content-type":"application/json",
-            authorization:`Bearer ${tokenData?.token}`
+            "Content-Type":"application/json",
+            "Authorization":`Bearer ${tokenData?.token}`
         },
        body:JSON.stringify(newData)
 
