@@ -23,12 +23,12 @@ const session = await auth.api.getSession({
   const user = session?.user; 
   console.log("userrrrrrr",user)
  
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/myidea`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/myidea?email=${user.email}`, {
     cache: "no-store",
-    headers: {
-      "content-type": "application/json",
-       authorization: `Bearer ${token}`
-    },
+    // headers: {
+    //   "content-type": "application/json",
+    //    authorization: `Bearer ${token}`
+    // },
   });
 
   const data = await res.json();
