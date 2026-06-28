@@ -36,7 +36,7 @@ const Search = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
-                 <Button className="bg-green-500 font-bold">Search</Button>
+                 {/* <Button className="bg-green-500 font-bold">Search</Button> */}
      
            </div>
             
