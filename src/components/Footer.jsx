@@ -21,7 +21,7 @@ const Footer = () => {
           <div >
             <h3 className=" mb-3 tracking-wide text-forgroud">NEWSLETTER</h3>
             <p className="mb-4 text-sm">
-              Subscribe for exclusive  deals and inspiration .
+              Subscribe for exclusive  deals and inspiration.
             </p>
 
             <div className="flex items-center  px-4 py-3">
