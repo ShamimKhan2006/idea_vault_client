@@ -15,7 +15,7 @@ const Home_idea = async() => {
   }
 );
     const homeIdea=await res.json()
-    console.log(homeIdea)
+  
 
     return (
          <div className='w-full max-w-10/12 mx-auto '>
