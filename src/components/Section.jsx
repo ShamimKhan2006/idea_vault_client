@@ -49,7 +49,7 @@ const Section = () => {
             <div>
               <h2 className="text-3xl font-bold text-red-500">99%</h2>
               <p className="text-sm  text-gray-400">
-                User Satisfaction
+                User Satisfaction 
               </p>
             </div>
           </div>

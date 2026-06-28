@@ -21,7 +21,7 @@ const Home_idea = async() => {
          <div className='w-full max-w-10/12 mx-auto '>
                   <div className='flex justify-between items-center'>
                      <h1 className=' my-10 font-bold text-3xl '>All Ideas</h1>
-                     <p className='flex gap-2 text-green-500 font-semibold'>View All <ArrowRight/>
+                     <p className='flex gap-2 text-green-500 font-semibold'>View All<ArrowRight/>
                      </p>
                   </div>
              
