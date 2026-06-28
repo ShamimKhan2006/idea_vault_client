@@ -3,7 +3,7 @@ import { createAuthClient } from "better-auth/react"
 export const authClient = createAuthClient({
 
     //   baseURL:"https://localhost:3000",
-          baseURL:"https://client-ten-eta-68.vercel.app",
+          baseURL:"",
     plugins:[
         jwtClient()
     ]
